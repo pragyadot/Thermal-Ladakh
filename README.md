@@ -1,4 +1,4 @@
-````markdown
+
 # THERMAL~LADAKH
 
 ## Regional Shelter Thermal Management System
@@ -73,7 +73,7 @@ Visualization and Comparison
         |
         v
 ANSYS Validation
-````
+
 
 ---
 
