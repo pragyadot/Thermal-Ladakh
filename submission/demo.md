@@ -14,4 +14,4 @@ The project demonstration video showcases:
 
 ## Demo Video
 
-[Watch the Project Demo]:  https://drive.google.com/file/d/1-meduQXEeQjVzxm-1CAlrtr1ko74-j96/view?usp=share_link
+[Watch the Project Demo](https://drive.google.com/file/d/1-meduQXEeQjVzxm-1CAlrtr1ko74-j96/view?usp=share_link)
