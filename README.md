@@ -49,7 +49,7 @@ The numerical model is implemented using the fourth-order Runge-Kutta method and
 
 ## System Workflow
 
-```text
+
 Environmental Data
         |
         v
@@ -83,9 +83,9 @@ The shelter is represented using a lumped thermal model in which the indoor temp
 
 The temperature evolution is represented generally as:
 
-```text
+
 dT/dt = f(T, Tambient, Solar, Shelter Parameters)
-```
+
 
 where:
 
