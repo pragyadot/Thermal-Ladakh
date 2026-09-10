@@ -1,9 +1,9 @@
 ````markdown
-# THERMAL//LADAKH
+# THERMAL~LADAKH
 
 ## Regional Shelter Thermal Management System
 
-THERMAL//LADAKH is a region-specific thermal analysis and shelter design platform developed for high-altitude cold regions such as Ladakh.
+THERMAL~LADAKH is a region-specific thermal analysis and shelter design platform developed for high-altitude cold regions such as Ladakh.
 
 The system allows users to configure a shelter, select construction materials, define design parameters, and evaluate the resulting thermal behaviour using real environmental data. The thermal model is solved using the fourth-order Runge-Kutta (RK4) numerical method and validated against ANSYS thermal simulations for representative shelter configurations.
 
@@ -21,7 +21,7 @@ A region-specific approach is therefore required to evaluate how shelter geometr
 
 ## Proposed Solution
 
-THERMAL//LADAKH provides an interactive platform for preliminary thermal analysis of shelters under regional environmental conditions.
+THERMAL~LADAKH provides an interactive platform for preliminary thermal analysis of shelters under regional environmental conditions.
 
 The system combines regional environmental data, material thermal properties, shelter geometry, solar heat gain, heat transfer through the shelter envelope and time-dependent numerical simulation into a single platform.
 
