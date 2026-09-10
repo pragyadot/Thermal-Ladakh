@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>THERMAL LADAKH</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+<div class="chroma-bg"></div><div class="grid-overlay"></div><div class="topo-bg" aria-hidden="true"><svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice"><g fill="none" stroke="currentColor" stroke-width="1.2"><path d="M0 620 Q150 560 300 610 T600 590 T900 630 T1200 580 T1600 620"/><path d="M0 680 Q180 610 360 670 T720 640 T1080 690 T1440 630 T1600 660"/><path d="M0 740 Q200 670 400 730 T800 700 T1200 745 T1600 710"/><path d="M0 800 Q220 730 440 790 T880 760 T1320 800 T1600 770"/><path d="M100 460 Q260 400 420 455 T740 430 T1060 470 T1380 420 T1600 460"/></g></svg></div>
+<nav class="top-nav">
+  <div class="brand"><img src="assets/drdo-logo.png" class="org-logo" alt="DRDO" onerror="this.style.display='none'; this.nextElementSibling.classList.add('show-fallback');"><span class="org-logo-fallback mono">DRDO</span><span class="brand-title">THERMAL LADAKH</span><span class="brand-sub">ARCHITECTURAL THERMAL SYSTEM</span></div>
+  <div class="nav-links">
+    <button class="nav-btn active" data-target="home"><span class="nav-num">01</span> HOME</button>
+    <button class="nav-btn" data-target="design"><span class="nav-num">02</span> DESIGN</button>
+    <button class="nav-btn" data-target="environment"><span class="nav-num">03</span> ENVIRONMENT</button>
+    <button class="nav-btn" data-target="simulation"><span class="nav-num">04</span> SIMULATION</button>
+    <button class="nav-btn" data-target="comparison"><span class="nav-num">05</span> COMPARISON</button>
+  </div>
+  <div class="controls"><button id="theme-toggle" class="icon-btn" title="Toggle light / dark"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg></button></div>
+</nav>
+<main class="app-container">
+<section id="home" class="page-section active">
+<div class="home2">
+  <div class="home2-main">
+    <div class="home2-image-frame">
+      <div class="home2-image-cta">
+        <button class="home2-btn primary" data-target="design">START DESIGNING →</button>
+        <button class="home2-btn ghost" data-target="environment">EXPLORE CLIMATE DATA</button>
+      </div>
+      <div class="home2-onimg-intro">
+        <div class="home2-eyebrow mono">EXTREME CLIMATE. REAL PHYSICS. BETTER DESIGN.</div>
+        <div class="home2-stats-row" id="home2-stats">
+          <div class="home2-stat"><span id="home2-stat-low" class="home2-stat-val">--</span><span class="home2-stat-label">WINTER LOW</span></div>
+          <div class="home2-stat"><span id="home2-stat-records" class="home2-stat-val">--</span><span class="home2-stat-label">RECORDS</span></div>
+          <div class="home2-stat"><span class="home2-stat-val">3,524 m</span><span class="home2-stat-label">ALTITUDE</span></div>
+        </div>
+      </div>
+      <aside class="home2-onimg-sidebar">
+        <div class="home2-sidebar-title mono">LIVE ENVIRONMENT DATA</div>
+        <div class="home2-env-row"><span class="home2-env-icon accent-yellow">☀</span><div class="home2-env-text"><span class="home2-env-label">SOLAR</span><span id="home2-env-solar" class="home2-env-val">--</span></div></div>
+        <div class="home2-env-row"><span class="home2-env-icon accent-red">◉</span><div class="home2-env-text"><span class="home2-env-label">OUTDOOR</span><span id="home2-env-temp" class="home2-env-val">--</span></div></div>
+        <div class="home2-env-row"><span class="home2-env-icon accent-blue">≋</span><div class="home2-env-text"><span class="home2-env-label">WIND</span><span id="home2-env-wind" class="home2-env-val">--</span></div></div>
+        <div class="home2-sidebar-divider"></div>
+        <div class="home2-net-row mono"><span>Net Gain</span><b id="home2-flow-net">--</b></div>
+      </aside>
+    </div>
+  </div>
+  <div class="home2-features">
+    <button class="home2-feature-card" data-target="design">
+      <span class="home2-feature-num mono">01</span><h3>DESIGN</h3>
+      <svg class="home2-feature-icon" viewBox="0 0 80 56"><polygon points="14,40 40,24 66,40 66,52 14,52" fill="none" stroke="currentColor" stroke-width="1.5"/><polyline points="14,40 40,24 66,40" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="22" y="42" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+      <p>Define geometry, orientation, windows and materials.</p><span class="home2-feature-arrow">→</span>
+    </button>
+    <button class="home2-feature-card" data-target="environment">
+      <span class="home2-feature-num mono">02</span><h3>ENVIRONMENT</h3>
+      <svg class="home2-feature-icon" viewBox="0 0 80 56"><polyline points="8,42 24,26 34,36 50,18 72,42" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="60" cy="18" r="6" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+      <p>Use real climate data for Ladakh (NASA POWER).</p><span class="home2-feature-arrow">→</span>
+    </button>
+    <button class="home2-feature-card" data-target="simulation">
+      <span class="home2-feature-num mono">03</span><h3>SIMULATION</h3>
+      <svg class="home2-feature-icon" viewBox="0 0 80 56"><polyline points="6,44 74,44" fill="none" stroke="currentColor" stroke-width="1"/><path d="M6,32 Q24,10 40,26 T74,20" fill="none" style="stroke:var(--color-yellow)" stroke-width="1.5"/><path d="M6,38 Q24,30 40,34 T74,32" fill="none" style="stroke:var(--color-blue)" stroke-width="1.5"/></svg>
+      <p>Run physics-based thermal simulation (RK4).</p><span class="home2-feature-arrow">→</span>
+    </button>
+    <button class="home2-feature-card" data-target="comparison">
+      <span class="home2-feature-num mono">04</span><h3>COMPARISON</h3>
+      <svg class="home2-feature-icon" viewBox="0 0 80 56"><polygon points="8,44 18,36 28,44" fill="none" stroke="currentColor" stroke-width="1.2"/><polygon points="30,44 40,34 50,44" fill="none" style="stroke:var(--color-blue)" stroke-width="1.5"/><polygon points="52,44 62,38 72,44" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+      <p>Compare designs and find the most efficient combination.</p><span class="home2-feature-arrow">→</span>
+    </button>
+    <div class="home2-quote">
+      <p>&ldquo;Data-driven design<br>for resilient habitats.&rdquo;</p>
+      <svg viewBox="0 0 200 90" class="home2-quote-art"><path d="M0 70 30 40 55 60 90 25 120 55 150 30 200 65" fill="none" stroke="currentColor" stroke-width="1" opacity=".4"/></svg>
+    </div>
+  </div>
+  <div class="home2-footer">
+    <div class="home2-footer-brand mono">DRDO <span class="dim">|</span> THERMAL LADAKH</div>
+    <div class="home2-footer-links mono">RESEARCH <span class="dim">|</span> INNOVATION <span class="dim">|</span> SUSTAINABLE HABITATS</div>
+    <div class="home2-footer-right mono">ABOUT&nbsp;&nbsp;DOCUMENTATION&nbsp;&nbsp;CONTACT</div>
+  </div>
+</div>
+</section>
+<section id="design" class="page-section">
+<div class="section-header"><div><h1 class="title">Wall Assembly Design</h1><p class="sub-title">PARAMETRIC MATERIAL & GEOMETRY CONFIGURATION</p></div><div class="header-stamp mono">SYS // 02</div></div>
+<div class="design-grid">
+<div class="panel"><span class="label">Geometry</span>
+<div class="form-group"><label>Length (m)</label><input id="geo-l" class="tech-input" type="number" step=".1" value="4"></div>
+<div class="form-group"><label>Width (m)</label><input id="geo-w" class="tech-input" type="number" step=".1" value="4"></div>
+<div class="form-group"><label>Height (m)</label><input id="geo-h" class="tech-input" type="number" step=".1" value="2.5"></div>
+<div class="form-group"><label>Window Area (m²)</label><input id="geo-win" class="tech-input" type="number" step=".1" value="2"></div>
+<div class="form-group"><label>Orientation</label><select id="geo-ori" class="tech-input"><option>South</option><option>East</option><option>West</option><option>North</option></select></div></div>
+<div class="panel"><span class="label">Layer Configuration</span>
+<div class="layer-config-box"><div class="layer-header"><b>LAYER 01</b><span>PRIMARY MASS</span></div><div class="form-group material-row"><div class="material-select-col"><label>Material</label><select id="l1-mat" class="tech-input"></select></div><img id="l1-swatch" class="material-swatch" alt="Layer 1 material preview"></div><div class="form-group"><label>Thickness: <span id="l1-thick-val">300</span> mm</label><input id="l1-thick" class="tech-range" type="range" min="50" max="800" value="300"></div><div id="l1-props-info" class="mat-props-mini"></div></div>
+<div class="layer-config-box" style="margin-top:1rem"><div class="layer-header"><b>LAYER 02</b><span>INSULATION</span></div><div class="form-group material-row"><div class="material-select-col"><label>Material</label><select id="l2-mat" class="tech-input"></select></div><img id="l2-swatch" class="material-swatch" alt="Layer 2 material preview"></div><div class="form-group"><label>Thickness: <span id="l2-thick-val">100</span> mm</label><input id="l2-thick" class="tech-range" type="range" min="20" max="300" value="100"></div><div id="l2-props-info" class="mat-props-mini"></div></div>
+<div style="display:flex;gap:.6rem;margin-top:1.25rem;flex-wrap:wrap"><button id="btn-apply-config" class="primary-btn solid-red">APPLY CONFIGURATION →</button><button id="btn-save-comparison" class="primary-btn">+ SAVE TO COMPARISON</button></div></div>
+<div class="panel"><span class="label">Live Shelter Visualization</span>
+<div class="shelter-parametric-wrap">
+  <div class="shelter-header-row">
+    <span class="dim mono">3D / ROTATABLE — DRAG TO ORBIT, SCROLL TO ZOOM, UPDATES LIVE</span>
+    <div id="shelter-compass" class="shelter-compass"></div>
+  </div>
+  <div id="shelter-3d-design" class="shelter-3d-host"></div>
+  <div id="shelter-legend" class="shelter-legend"></div>
+  <div class="phys-timeline-panel">
+    <div class="phys-readout-row">
+      <div class="phys-readout"><span class="phys-key mono">TIME</span><span id="phys-time" class="phys-val mono">RUN A SIMULATION TO SCRUB TIME →</span></div>
+      <div class="phys-readout accent-orange"><span class="phys-key mono">SOLAR IN</span><span id="phys-solar" class="phys-val mono">--</span></div>
+      <div class="phys-readout accent-blue"><span class="phys-key mono">HEAT LOSS</span><span id="phys-loss" class="phys-val mono">--</span></div>
+      <div class="phys-readout"><span class="phys-key mono">INTERIOR</span><span id="phys-interior" class="phys-val mono">--</span></div>
+      <div class="phys-readout"><span class="phys-key mono">AMBIENT</span><span id="phys-ambient" class="phys-val mono">--</span></div>
+    </div>
+    <div class="phys-slider-row">
+      <button id="phys-play-btn" class="phys-play-btn" title="Play through the simulated hours">▶</button>
+      <input id="phys-time-slider" type="range" min="0" max="0" value="0" class="phys-slider" disabled>
+    </div>
+    <p class="dim mono" style="font-size:.68rem;margin-top:.3rem">Scrub through the real simulated hours to see solar gain / heat loss / day-night lighting update on the 3D model — all values read directly from the RK4 result, nothing here is invented.</p>
+  </div>
+</div>
+<div class="assembly-vis-container"><div class="env-zone cold-zone"><span>EXTERIOR</span><span id="vis-ext-temp">−8.2°C</span></div><div class="flow-arrow">← THERMAL FLUX →</div><div class="assembly-stack-frame"><div id="vis-block-l1" class="assembly-block layer-1-block"><div class="block-info"><b>L1</b><span id="vis-name-l1">RAMMED EARTH</span></div><span id="vis-thick-l1" class="mono">300 mm</span></div><div id="vis-block-l2" class="assembly-block layer-2-block"><div class="block-info"><b>L2</b><span id="vis-name-l2">STRAW-CLAY INSULATION</span></div><span id="vis-thick-l2" class="mono">100 mm</span></div></div><div class="flow-arrow">← HEAT RETENTION →</div><div class="env-zone hot-zone"><span>INTERIOR</span><span id="vis-int-temp">+18.7°C</span></div></div>
+<div class="properties-box"><span class="label">Derived Properties</span><div class="prop-grid"><div class="prop-card"><span class="prop-label">TOTAL THICKNESS</span><span id="prop-thick" class="prop-val">--</span></div><div class="prop-card"><span class="prop-label">R-VALUE</span><span id="prop-r" class="prop-val">--</span></div><div class="prop-card"><span class="prop-label">U-VALUE</span><span id="prop-u" class="prop-val">--</span></div><div class="prop-card"><span class="prop-label">THERMAL CAPACITY</span><span id="prop-mc" class="prop-val">--</span></div></div></div></div>
+</div></section>
+<section id="environment" class="page-section">
+<div class="section-header"><div><h1 class="title">Environment</h1><p class="sub-title">24-HOUR CLIMATE PROFILE / DESIGN CONDITIONS</p></div><div class="header-stamp mono">SYS // 03</div></div>
+<div class="env-kpi-grid"><div class="kpi-card"><span class="dim">MIN TEMP</span><span id="env-min-temp" class="kpi-val">--</span><span class="kpi-sub">DATASET LOW</span></div><div class="kpi-card"><span class="dim">MAX TEMP</span><span id="env-max-temp" class="kpi-val">--</span><span class="kpi-sub">DATASET HIGH</span></div><div class="kpi-card"><span class="dim">PEAK SOLAR</span><span id="env-peak-solar" class="kpi-val">--</span><span class="kpi-sub">HOURLY IRRADIANCE</span></div><div class="kpi-card"><span class="dim">AVG AMBIENT</span><span id="env-avg-temp" class="kpi-val">--</span><span class="kpi-sub">DATASET MEAN</span></div></div>
+<div class="env-charts-grid" style="margin-top:1.75rem"><div class="panel"><span class="label">Temperature Profile</span><div class="chart-container"><canvas id="chart-env-temp"></canvas></div></div><div class="panel"><span class="label">Solar Radiation</span><div class="chart-container"><canvas id="chart-env-solar"></canvas></div></div></div>
+</section>
+<section id="simulation" class="page-section">
+<div class="section-header"><div><h1 class="title">Thermal Simulation</h1><p class="sub-title">TRANSIENT RESPONSE / TIME-DOMAIN MODEL</p></div><div class="header-stamp mono">SYS // 04</div></div>
+<div class="results-summary-grid">
+<div class="panel"><span class="panel-tag mono">TELEMETRY</span><span class="label">Predicted Interior</span><div id="ov-interior" class="large-value">--</div><div class="metrics-row"><div class="metric"><span class="dim">AMBIENT</span><span id="ov-ambient" class="val">-8.2°C</span></div><div class="metric"><span class="dim">ΔT</span><span id="ov-delta" class="val accent-red">--</span></div></div><div class="metrics-row secondary"><div class="metric"><span class="dim">SOLAR GAIN</span><span id="ov-solar" class="val accent-red">--</span></div><div class="metric"><span class="dim">HEAT LOSS</span><span id="ov-loss" class="val accent-blue">--</span></div></div></div>
+<div class="panel signal-panel"><span class="panel-tag mono">SIGNAL</span><span class="label">Interior vs Ambient — Live Trace</span><div class="signal-chart-frame"><canvas id="chart-overview-signal"></canvas></div><div class="metrics-row"><div class="metric"><span class="dim">PEAK SOLAR (PERIOD)</span><span id="ov-peak-solar" class="val accent-yellow">--</span></div><div class="metric"><span class="dim">NIGHT ADVANTAGE</span><span id="ov-night-adv" class="val accent-red">--</span></div></div></div>
+<div class="panel"><span class="panel-tag mono">ASSEMBLY</span><span class="label">Wall Layer Stack</span><div id="ov-layer-preview" class="layer-stack-preview"></div><div class="spec-list" style="margin-top:1.5rem"><div class="spec-row"><span>GLAZING RATIO</span><span id="ov-glazing" class="val">--</span></div><div class="spec-row"><span>ORIENTATION</span><span id="ov-orientation" class="val">--</span></div><div class="spec-row"><span id="ov-dim-len">L: --</span><span id="ov-dim-wid">W: --</span></div><div class="spec-row"><span id="ov-dim-hgt">H: --</span><span>METRIC</span></div><div class="spec-row"><span>FOOTPRINT</span><span id="ov-area" class="val">--</span></div><div class="spec-row"><span>VOLUME</span><span id="ov-vol" class="val">--</span></div></div></div>
+</div>
+<div class="panel sim-controls-bar"><div class="sim-ctrl-group"><label>START DATE</label><input id="sim-start-date" class="tech-input" type="date"></div><div class="sim-ctrl-group"><label>SIMULATION DURATION (DAYS)</label><input id="sim-duration" class="tech-input" type="number" min="1" max="14" value="3"></div><div class="sim-ctrl-group"><label>TIME STEP</label><input id="sim-dt" class="tech-input" type="text" value="60 min (real hourly data)" disabled title="Fixed to match real NASA POWER hourly data resolution"></div><div class="sim-actions"><button id="btn-reset-sim" class="primary-btn">RESET</button><button id="btn-run-sim" class="primary-btn solid-red">RUN SIMULATION ▶</button></div><div class="sim-progress-bar"><div id="sim-progress-fill" class="sim-progress-fill"></div></div></div>
+<p class="dim mono" style="margin-top:.6rem;font-size:.72rem">Start date is constrained to the real loaded dataset range — no invented or extrapolated dates.</p>
+<div class="env-charts-grid" style="margin-top:1.75rem"><div class="panel"><div class="panel-header-flex"><span class="label" style="margin:0">Temperature Response</span><span class="dim mono">°C</span></div><div class="chart-container large"><canvas id="chart-sim-temp"></canvas></div></div><div class="panel"><div class="panel-header-flex"><span class="label" style="margin:0">Heat Flux</span><span class="dim mono">kW</span></div><div class="chart-container large"><canvas id="chart-sim-flux"></canvas></div></div></div>
+</section>
+<section id="comparison" class="page-section">
+<div class="section-header"><div><h1 class="title">Configuration Comparison</h1><p class="sub-title">BENCHMARK AGAINST ALTERNATIVE WALL SYSTEMS</p></div><div class="header-stamp mono">SYS // 05</div></div>
+<div class="panel"><span class="label">Saved Configurations</span><div id="comp-saved-list" class="spec-list"><div class="dim mono" style="padding:.5rem 0">No configurations saved yet — go to Design, build a wall, then click "SAVE TO COMPARISON".</div></div><button id="btn-run-comparison" class="primary-btn solid-red" style="margin-top:1rem" disabled>RUN COMPARISON ▶</button></div>
+<div class="panel"><span class="label">Performance Matrix</span><div class="table-wrapper"><table class="tech-table"><thead><tr><th>CONFIG</th><th>LAYER 1</th><th>LAYER 2</th><th>U-VALUE</th><th>THERMAL MASS</th><th>MIN TEMP</th><th>AVG TEMP</th><th>STATUS</th></tr></thead><tbody id="comp-table-body"></tbody></table></div></div>
+<div class="env-charts-grid" style="margin-top:1.75rem"><div class="panel"><span class="label">Benchmark</span><div class="chart-container large"><canvas id="chart-comp-bars"></canvas></div></div><div class="panel"><div class="analysis-box"><span id="comp-eval-title" class="analysis-title">EVALUATION</span><p id="comp-eval-body" class="analysis-text">--</p><div class="key-takeaways"><div class="takeaway-item"><span class="accent-red">01</span><span id="takeaway-1">--</span></div><div class="takeaway-item"><span class="accent-blue">02</span><span id="takeaway-2">--</span></div></div></div></div></div>
+</section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
