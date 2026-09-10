@@ -1,6 +1,6 @@
 # System Architecture
 
-## THERMAL//LADAKH — Regional Shelter Thermal Management System
+## THERMA~LADAKH — Regional Shelter Thermal Management System
 
 ---
 
