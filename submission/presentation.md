@@ -1,14 +1,12 @@
 # Project Presentation
 
-The final SIH project presentation will be added here.
-
 ## Project
 
 **THERMAL~LADAKH — Regional Shelter Thermal Management System**
 
 ## Presentation
 
-The final presentation will contain:
+The final presentation contains:
 
 - Problem Statement
 - Proposed Solution
@@ -24,4 +22,4 @@ The final presentation will contain:
 - Future Scope
 - Team Details
 
-The final PPT/PDF: 
+[The final PPT/PDF](https://drive.google.com/file/d/1NHGZkqrNmaLQJcfZhAwWnxRAQaJ5frJZ/view?usp=drive_link)
